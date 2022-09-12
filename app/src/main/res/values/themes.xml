@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.Tell" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.Tell.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/md_theme_primary</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_round</item>
+        <item name="android:windowSplashScreenBrandingImage" tools:targetApi="s">
+            @drawable/splash_branding_image
+        </item>
+        <item name="postSplashScreenTheme">@style/Theme.Tell</item>
+        <item name="android:statusBarColor">@color/md_theme_primary</item>
+        <item name="android:navigationBarColor">@color/md_theme_primary</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>
