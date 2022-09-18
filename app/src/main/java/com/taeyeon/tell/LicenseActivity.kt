@@ -11,6 +11,7 @@ import android.window.OnBackInvokedDispatcher
 import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.compose.setContent
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -170,30 +171,34 @@ object License {
                 }
             }
 
-            if (expanded) {
-                Divider(
-                    color = MaterialTheme.colorScheme.outline.copy(alpha = 0.4f),
-                    modifier = Modifier.fillMaxWidth()
-                )
+            AnimatedVisibility(visible = expanded) {
 
-                if (license != null) {
-                    SelectionContainer {
-                        Text(
-                            text = license,
-                            modifier = Modifier.fillMaxWidth()
-                        )
+                Column {
+
+                    Divider(
+                        color = MaterialTheme.colorScheme.outline.copy(alpha = 0.4f),
+                        modifier = Modifier.fillMaxWidth()
+                    )
+
+                    if (license != null) {
+                        SelectionContainer {
+                            Text(
+                                text = license,
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                        }
                     }
-                }
 
-                if (link != null) {
-                    Button(
-                        onClick = {
-                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
-                            Core.getActivity().startActivity(intent)
-                        },
-                        modifier = Modifier.align(Alignment.End)
-                    ) {
-                        Text(text = stringResource(id = R.string.show_full))
+                    if (link != null) {
+                        Button(
+                            onClick = {
+                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
+                                Core.getActivity().startActivity(intent)
+                            },
+                            modifier = Modifier.align(Alignment.End)
+                        ) {
+                            Text(text = stringResource(id = R.string.show_full))
+                        }
                     }
                 }
             }
