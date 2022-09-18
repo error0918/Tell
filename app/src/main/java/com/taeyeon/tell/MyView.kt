@@ -347,7 +347,6 @@ object MyView {
                         ProvideTextStyle(contentTextStyle) {
                             Box(
                                 modifier = Modifier
-                                    .weight(weight = 1f, fill = false)
                                     .padding(PaddingValues(bottom = 16.dp))
                                     .align(Alignment.Start)
                             ) {
